@@ -82,7 +82,7 @@ class CL
 			cout<<"\n\n";
 		}
 };
-main()
+int main()
 {
 	cout<<"\nHow Many People? --> ";
 	int N;
