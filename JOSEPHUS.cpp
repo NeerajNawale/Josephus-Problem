@@ -2,6 +2,8 @@
 #include<stdlib.h>
 using std::cout;
 using std::cin;
+
+// Node Class to create LinkedList
 class node
 {
 	int data;
@@ -13,16 +15,23 @@ class node
 	}
 	friend class CL;
 };
+
+// Circular Linked List Class
 class CL
 {
 		node* head;
 	public:
+		// Constructor, initialize 1st node i.e. "head" node to NULL
 		CL():head(NULL){}
+	
+		// Input
 		void getData(int N)
 		{
 			for(int i=0;i<N;i++)
 				create(i+1);
 		}
+	
+		// Create Circular LinkedList
 		void create(int i)
 		{
 			node* p=new node(i);
@@ -39,6 +48,8 @@ class CL
 			q->next=p;
 			p->next=head;
 		}
+	
+		// Solve Josephus Problem
 		void Josephus(int K,int N)
 		{
 			node* p,*q;
@@ -58,6 +69,8 @@ class CL
 			head=p;
 			cout<<"\nLast Man Standing --> "<<head->data;
 		}
+		
+		// Print Circular LinkedList
 		void show(char* msg)
 		{
 			cout<<msg;
@@ -93,5 +106,31 @@ main()
 	cl.Josephus(K,N);
 }
 
+/*
+Output ::
 
+How Many People? --> 14
+All standing in a Circle :: 
+1	2	3	4	5	6	7	8	9	10	11	12	13	14	
+
+
+Person to be Killed in the Circle --> 2
+2 has been Killed
+4 has been Killed
+6 has been Killed
+8 has been Killed
+10 has been Killed
+12 has been Killed
+14 has been Killed
+3 has been Killed
+7 has been Killed
+11 has been Killed
+1 has been Killed
+9 has been Killed
+5 has been Killed
+
+Last Man Standing --> 13
+
+
+*/
 
